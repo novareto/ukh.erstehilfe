@@ -1,0 +1,9 @@
+/* Example */
+
+h4.panel-title a span.sign::after {
+    content: " Übersicht schließen";
+}
+
+h4.panel-title a.collapsed span.sign::after {
+    content: " Übersicht öffnen";
+}

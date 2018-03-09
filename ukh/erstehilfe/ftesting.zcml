@@ -1,0 +1,11 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   i18n_domain="ukh.erstehilfe"
+   package="ukh.erstehilfe"
+   >
+
+  <includeOverrides package="uvcsite" file="ftesting.zcml"/>
+  <include package="ukh.erstehilfe" />
+
+</configure>
+

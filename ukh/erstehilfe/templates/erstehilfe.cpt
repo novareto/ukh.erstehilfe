@@ -1,0 +1,96 @@
+<div tal:define="address view.getAddress();
+  vouchers view.getVouchers();
+  categories view.getCategory()">
+<!--
+  <h1> Willkommen im Erste-Hilfe-Portal der Unfallkasse Hessen</h1>
+  <h1 class="lead"> Antrag auf Kostenübernahme für Erste-Hilfe-Lehrgänge </h1>
+  <p> Sie können für folgende Kontingente (K) Berechtigungsscheine anfordern. </p>
+  <p> Informationen zu den jeweiligen Kontingenten und den erforderlichen Angaben finden Sie unter dem Button "Info". </p>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default" tal:repeat="cat view.categories">
+      <div class="panel-heading" role="tab" id="headingOne" tal:attributes="id string:heading${cat['name']}">
+        <h4 class="panel-title">
+            <span tal:content="cat['doc']"> </span>
+          <a role="button" class="collapsed btn btn-primary pull-right" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" tal:attributes="href string:#collapse${cat['name']}">
+	    <span class="pull-right sign">&nbsp;</span>
+          </a> 
+        </h4>
+        <div tal:define="cat_vouchers request.principal.getVouchers(cat['name'])">
+          <p tal:condition="cat_vouchers"> Sie haben in diesem Kontingent <span tal:content="len(cat_vouchers)" /> Berechtigungsscheine. </p>
+
+
+             <p tal:condition="cat_vouchers">
+             <div tal:condition="cat['doc'] == u'Freiwillige Feuerwehren (K10)'">
+               <font color="red">
+                 <p><b>Bitte beachten Sie:</b></p>
+                 <p><b>Ab 1.4.2017 gilt im Bereich der Freiwilligen Feuerwehren ein mit den Kreisbrandinspektoren
+                       abgestimmtes Erste-Hilfe-Verfahren.</b></p>
+                 <p><b>Weitere Informationen folgen in Kürze. Bis 31.3.2017 steht
+                       Ihnen als Kommune das aktuelle Verfahren zur Verfügung.</b></p>
+               </font>
+             </div>
+             </p>
+
+
+
+          <button tal:condition="not: cat_vouchers" type="button" class="btn btn-primary btn-lg" data-toggle="modal" tal:attributes="data-target '#' + cat['name']">
+            Berechtigungsscheine anfordern
+          </button>
+
+          <a href="" tal:attributes="href string:${view.application_url()}/pdf?cat=${cat['name']}">
+            <button tal:condition="cat_vouchers" type="button" class="btn btn-primary btn-lg" data-toggle="modal">
+              Berechtigungsscheine downloaden
+            </button>
+          </a>
+
+          <a href="" tal:attributes="href cat['infolink']" target="_blank" class="btn btn-primary"> Info </a>
+        <div class="modal fade" tal:attributes="id cat['name']">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close"
+                                      data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <h4>Kontingent</h4>
+                <a href="" tal:attributes="href cat['infolink']" target="_blank" class="btn btn-primary pull-right"> Info </a>
+                <p tal:content="structure cat['desc']"> </p>
+              </div>
+              <div class="modal-body" tal:content="structure cat['form'].render()"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" tal:attributes="id string:collapse${cat['name']}">
+        <div class="panel-body" tal:define="cat_vouchers request.principal.getVouchers(cat['name'])">
+          <div tal:condition="cat_vouchers">
+            <a href="" tal:attributes="href string:${view.application_url()}/pdf?cat=${cat['name']}"><h2> Berechtigungsscheine nur für dieses Kontingent Downloaden </h2></a>
+            <table class="EHtable">
+              <tr>
+                <th width="75"> Nummer / id </th>
+                <th width="80"> Datum </th>
+                <th> Status </th>
+                <th> Grundlage </th>
+              </tr>
+              <tr tal:repeat="voucher cat_vouchers">
+                <td tal:content="voucher.oid"></td>
+                <td tal:content="voucher.creation_date"></td>
+                <td tal:content="voucher.status"></td>
+                <td tal:content="voucher.displayData"></td>
+              </tr>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="well" tal:condition="vouchers">
+    <p> Sie haben die Möglichkeit Ihre Berechtigungsscheine nun herunterzuladen. </p>
+    <a href="" tal:attributes="href string:${view.application_url()}/pdf"><h3><u> Alle Berechtigungsscheine Downloaden </u></h3></a>
+  </div>
+  <a href="http://www.ukh.de/praevention/erste-hilfe-verfahren" target="_blank">
+      <h3><u> Weitere Informationen zur Ersten Hilfe erhalten Sie hier.</u></h3>
+  </a>
+-->
+</div>

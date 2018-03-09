@@ -1,0 +1,17 @@
+$(document).ready(function() {
+    $(form).submit(function(event) {
+	event.preventDefault();
+	var basic = $("#remote-form").attr("rel");
+	$.ajax({
+            url: $(this).attr('action'),
+            type: 'post',
+            data: $(this).serialize(),
+	    headers: {
+		"Authorization": "Basic " + basic
+	    },
+            success: function(data) {
+                alert('Submitted with success.')
+            }
+	});
+    });
+})

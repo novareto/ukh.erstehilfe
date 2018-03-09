@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+# # Copyright (c) 2007-2013 NovaReto GmbH
+# # cklinger@novareto.de
+#
+
+import grok
+import uvcsite
+import requests
+import base64
+from .resources import remote
+from uvcsite.interfaces import IMyHomeFolder
+
+
+grok.templatedir('templates')
+
+
+class ErsteHilfeExternal(uvcsite.Page):
+    grok.context(IMyHomeFolder)
+
+    def update(self):
+        user = "32279"
+        password = "h9bOxYXi"
+        self.basic = base64.b64encode("%s:%s" % (user, password))
+        self.remote = requests.get('http://10.64.53.10:9955/external')
+
+    def render(self):
+        remote.need()
+        wrapper = """<div id="remote-form" rel="%s">%s</div>""" 
+        return wrapper % (self.basic, self.remote.text)

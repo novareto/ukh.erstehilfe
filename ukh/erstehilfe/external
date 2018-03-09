@@ -1,0 +1,132 @@
+<div>
+  <h1> Willkommen im Erste-Hilfe-Portal der Unfallkasse Hessen</h1>
+  <h1 class="lead"> Antrag auf Kostenübernahme für Erste-Hilfe-Lehrgänge </h1>
+  <p> Sie können für folgende Kontingente (K) Berechtigungsscheine anfordern. </p>
+  <p> Informationen zu den jeweiligen Kontingenten und den erforderlichen Angaben finden Sie unter dem Button "Info". </p>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingK7">
+        <h4 class="panel-title">
+            <span>Schulen (nur Lehrkräfte) (K7)</span>
+          <a role="button" class="collapsed btn btn-primary pull-right" data-toggle="collapse" data-parent="#accordion" href="#collapseK7" aria-expanded="true" aria-controls="collapseOne">
+	    <span class="pull-right sign">&nbsp;</span>
+          </a> 
+        </h4>
+        <div>
+          
+
+
+             <!-- Sondertext Feuerwehr -->
+             
+             <!-- #################### -->
+
+
+
+          <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#K7">
+            Berechtigungsscheine anfordern
+          </button>
+
+          <a href="http://10.64.53.10:9955/pdf?cat=K7">
+            
+          </a>
+
+          <a href="http://www.ukh.de/fileadmin/ukh.de/Erste_Hilfe/Erste_Hilfe_PDF_2016_NEU/UKH_K7_Erste-Hilfe_fuer_Lehrkraefte_an_Schulen.pdf" target="_blank" class="btn btn-primary"> Info </a>
+        <div class="modal fade" id="K7">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close"
+                                      data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                <!--Nachfolgende Zeile wurde ausgeblendet, doppelter Titel...-->
+                <!--<h4 class="modal-title" id="myModalLabel" tal:content="cat['doc']" > </h4>-->
+                <h4>Kontingent</h4>
+                <a href="http://www.ukh.de/fileadmin/ukh.de/Erste_Hilfe/Erste_Hilfe_PDF_2016_NEU/UKH_K7_Erste-Hilfe_fuer_Lehrkraefte_an_Schulen.pdf" target="_blank" class="btn btn-primary pull-right"> Info </a>
+                <p>
+<h2>K7: Schulen (nur Lehrkräfte)</h2>
+<h4><u>Lehrkräfte:</u></h4>
+<p>Bitte tragen Sie die Zahl der Lehrkräfte ein, die an der Schule und ggf. an den Außenstellen der Schule tätig sind.
+   Wir übernehmen Lehrgangsgebühren für die Teilnahme an</p>
+<p>-  Erste-Hilfe-Fortbildungen im Sinne des DGUV Grundsatzes 304-001</p>
+<p>-  Erste-Hilfe-Fortbildungen Schule</p>
+<p>für 15 % des gesamten Kollegiums in einem Zeitraum von 2 Jahren.</p>
+<p>Hinweis: Bitte zählen Sie Personal in anderen Bereichen, bspw. in der Schulbetreuung, Reinigung,
+   Sekretariat oder Hausmeister nicht mit. Für dieses Personal beantragt der Arbeitgeber die Kostenübernahme
+   der Lehrgangsgebühren bei der zuständigen Fach-Berufsgenossenschaft oder bei uns als Mitgliedsunternehmen.</p>
+<p>Felder mit <b>*</b> sind Pflichtfelder, diese müssen gefüllt werden.</p>
+</p>
+              </div>
+              <div class="modal-body"><form action="http://10.64.53.10:9955/k7form" novalidate="novalidate" method="post"
+      enctype="multipart/form-data" role="form" id="K7Form">
+  
+  
+
+  
+
+       
+ 
+
+  <fieldset>
+    
+    <div class="form-group">
+      
+	<div class="form-group" id="field-form-field-lehrkraefte">
+	  <label class="control-label" for="form-field-lehrkraefte"> 
+            <span>Anzahl Lehrkräfte (ohne Schulbetreuung, Sekretariat, Reinigungs- und Hausmeistertätigkeiten)</span> <span> * </span> 
+	  </label>
+	  
+	  <div class="input controls">
+            <input type="number" value="" id="form-field-lehrkraefte" name="form.field.lehrkraefte" class="field field-number form-control field-required" required="required" />
+
+            
+	  </div>
+	</div>
+      
+	<div class="form-group" id="field-form-field-bestaetigung">
+	  <label class="control-label" for="form-field-bestaetigung"> 
+            <span>Bestätigung:</span> <span> * </span> 
+	  </label>
+	  
+	  <div class="input controls">
+            <label>
+ <input id="form-field-bestaetigung" name="form.field.bestaetigung" class="field field-bool field-required" value="True" type="checkbox" />
+Hiermit bestätige ich die Richtigkeit meiner Angaben.
+</label>
+
+            
+	  </div>
+	</div>
+      
+    </div>
+    <div class="form-actions">
+      <span class="action">
+          <input type="submit" id="form-action-calculate" name="form.action.calculate" value="Berechnen und eintragen" class="action btn btn-default" />
+
+      </span>
+      <span class="action">
+          <input type="submit" id="form-action-abbrechen" name="form.action.abbrechen" value="Abbrechen" class="action btn btn-default" />
+
+      </span>
+    </div>
+  </fieldset>
+</form>
+
+</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="collapseK7" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <a href="http://www.ukh.de/praevention/erste-hilfe-verfahren" target="_blank">
+      <h3><u> Weitere Informationen zur Ersten Hilfe erhalten Sie hier.</u></h3>
+  </a>
+</div>
