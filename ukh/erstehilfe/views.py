@@ -66,8 +66,14 @@ class ErsteHilfeExternal(uvcsite.Page):
         main.need()
         um = self.request.principal.getUM()
         user_obj = um.getUser(self.request.principal.id)
-        user = user_obj['mnr'] 
+        az = user_obj['az']
+        if az == "00":
+            az = "eh"
+        user = "%s-%s" %(user_obj['mnr'], az)
+        print user
+        #user = user_obj['mnr'] 
         password = user_obj['passwort'] 
+        print user
         self.basic = base64.b64encode("%s:%s" % (user, password))
         remote = requests.get(
             'http://10.64.53.10:9955/external',
