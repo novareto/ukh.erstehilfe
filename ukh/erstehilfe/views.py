@@ -42,7 +42,7 @@ class ErsteHilfeExternalPDF(grok.View):
         print user
         password = user_obj['passwort']
         remote = requests.get(
-            'http://10.64.54.12:9955/pdf',
+            'http://10.64.54.12:8085/pdf',
             auth=(user, password), params=self.request.form)
 
         if not remote.status_code == 200:
@@ -66,11 +66,17 @@ class ErsteHilfeExternal(uvcsite.Page):
         main.need()
         um = self.request.principal.getUM()
         user_obj = um.getUser(self.request.principal.id)
-        user = user_obj['mnr']
+        az = user_obj['az']
+        if az == "00":
+            az = "eh"
+        user = "%s-%s" %(user_obj['mnr'], az)
+        print user
+        #user = user_obj['mnr']
         password = user_obj['passwort']
+        print user
         self.basic = base64.b64encode("%s:%s" % (user, password))
         remote = requests.get(
-            'http://10.64.54.12:9955/external',
+            'http://10.64.54.12:8085/external',
             auth=(user, password))
         self.remote = remote.text
         #print remote
@@ -90,7 +96,7 @@ class ErsteHilfeExternal(uvcsite.Page):
         #self.remote = self.remote.replace(u'<a href="http://10.64.53.10:9955/pdf"><h3><u> Alle Berechtigungsscheine Downloaden </u></h3></a>',
         #                                  u'</br>')
         self.remote = self.remote.replace(
-            'href="http://10.64.54.12:9955/', 'href="' + self.url(self.context) + '/')
+            'href="http://10.64.54.12:8085/', 'href="' + self.url(self.context) + '/')
 
     def render(self):
         remote.need()
