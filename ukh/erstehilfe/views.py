@@ -77,9 +77,9 @@ class ErsteHilfeExternal(uvcsite.Page):
         self.basic = base64.b64encode("%s:%s" % (user, password))
         remote = requests.get(
             'http://10.64.54.11:8085/external',
-            auth=(user, password))
+            auth=(user, password), verify=False)
         self.remote = remote.text
-        #print remote
+        #print self.remote
         #self.remote = remote.text.replace(
         #        'href="http://10.64.53.10:9955/pdf"', 'href="' + self.url(self.context) + "/'erstehilfeexternal-pdf" )
         #print self.remote
@@ -97,11 +97,31 @@ class ErsteHilfeExternal(uvcsite.Page):
         #                                  u'</br>')
         self.remote = self.remote.replace(
             'href="http://10.64.54.11:8085/', 'href="' + self.url(self.context) + '/')
+        self.remote = self.remote.replace(
+             'action="http://10.64.54.11:8085/k7form', 'action="'+self.url(self.context) + '/k7form')
 
     def render(self):
         remote.need()
         wrapper = """<div id="remote-form" rel="%s">%s</div>"""
         return wrapper % (self.basic, self.remote)
+
+
+class ErsteHilfeExternalPost(uvcsite.View):
+    grok.context(ErsteHilfe)
+    grok.name('k7form')
+
+    def update(self):
+        um = self.request.principal.getUM()
+        user_obj = um.getUser(self.request.principal.id)
+        az = user_obj['az']
+        if az == "00":
+            az = "eh"
+        user = "%s-%s" %(user_obj['mnr'], az)
+        password = user_obj['passwort']
+        self.remote = requests.post('http://10.64.54.11:8085/k7form', auth=(user, password), data=self.request.form)
+
+    def render(self):
+        return self.remote.text
 
 
 class ErsteHilfeKontakt(grok.Viewlet):
